@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Developando]]></title>
+  <link href="http://panceri.github.io/atom.xml" rel="self"/>
+  <link href="http://panceri.github.io/"/>
+  <updated>2015-08-27T12:25:26+00:00</updated>
+  <id>http://panceri.github.io/</id>
+  <author>
+    <name><![CDATA[Filipe Sguarizi Panceri]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>

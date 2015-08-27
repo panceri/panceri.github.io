@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Developando]]></title>
-  <link href="http://panceri.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: C++ | Developando]]></title>
+  <link href="http://panceri.github.io/blog/categories/c-plus-plus/atom.xml" rel="self"/>
   <link href="http://panceri.github.io/"/>
   <updated>2015-08-27T13:45:46+00:00</updated>
   <id>http://panceri.github.io/</id>
@@ -58,15 +58,6 @@
 <li>Projeto que mostra o uso da API de detecção de inserção/remoção de dispositivos no Windows. <a href="http://www.codeproject.com/Articles/31749/Device-Information">link</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[First]]></title>
-    <link href="http://panceri.github.io/blog/2015/08/26/first/"/>
-    <updated>2015-08-26T00:00:00+00:00</updated>
-    <id>http://panceri.github.io/blog/2015/08/26/first</id>
-    <content type="html"><![CDATA[<p> Meu primeiro blog, e minha primeira postagem. Momento muito emocionante na minha vida, ta passou. Meu objetivo é postar pequenas dicas de programação, nada de tutoriais ou artigos intensos, apenas tentar compartilhar a forma que eu lido/lidei com alguns problemas que tive. Valew e vamos que vamos.</p>
 ]]></content>
   </entry>
   

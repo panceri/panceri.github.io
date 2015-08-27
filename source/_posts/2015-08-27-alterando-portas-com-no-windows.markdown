@@ -20,13 +20,21 @@ Depois de muito pesquisar no MSDN da Microsoft, não encontrei nenhuma API que m
 
 ## A solução
 
-Optei pela solução 2, e deixei a 1 para nível de desespero máximo. Em minhas pesquisas, descobri que essa informação é armazenada no registro do Windows. Mais especificamente na chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_XXXX&PID_YYYY\BBBBBBBBBBBBB\Device Parameters\PortName" onde:
+Optei pela solução 2, e deixei a 1 para nível de desespero máximo. Em minhas pesquisas, descobri que essa informação é armazenada no registro do Windows. Mais especificamente na chave:
+```
+ "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_XXXX&PID_YYYY\BBBBBBBBBBBBB\Device Parameters\PortName"
+```
 
 - XXXX: Vendor ID
 - YYYY: Product ID
 - BBBBBBBBBBBBB - Endereço do dispositivo dentro do barramento USB
 
-Mas não para por aí, geralmente a porta COM dos dispositivos é colocada no nome do dispositivo também, e essa informação esta na chave "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_XXXX&PID_YYYY\BBBBBBBBBBBBB\FriendlyName". Então parti para a mesma solução do ComPortMan, fiz um serviço do Windows em C++ que ouvia dispositivos conectados pela USB e quando identificasse que era um dos nossos equipamentos, verificafa se ele ja estava na nossa porta COM correta e caso contrário alterava esses 2 valores no registro do Windows. Para as alterações terem efeito é preciso desabilitar e habilitar o dispositivo. O Windows até provê uma API para alterar algumas informações do dispositivo [link](https://msdn.microsoft.com/en-us/library/windows/hardware/ff552169%28v=vs.85%29.aspx). Até funciona muito bem para as versões 7 e 8 do Windows, mas no Windows XP tive alguns problemas, pois o nome do dispositivo ficava com lixo na String. Pode ser a minha falta de competência em manipular Strings em c++ e como tentei por 2 dias resolver isso sem sucesso, apelei para o registro do Windows. 
+Mas não para por aí, geralmente a porta COM dos dispositivos é colocada no nome do dispositivo também, e essa informação esta na chave:
+```
+"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_XXXX&PID_YYYY\BBBBBBBBBBBBB\FriendlyName"
+```
+
+Então parti para a mesma solução do ComPortMan, fiz um serviço do Windows em C++ que ouvia dispositivos conectados pela USB e quando identificasse que era um dos nossos equipamentos, verificafa se ele ja estava na nossa porta COM correta e caso contrário alterava esses 2 valores no registro do Windows. Para as alterações terem efeito é preciso desabilitar e habilitar o dispositivo. O Windows até provê uma API para alterar algumas informações do dispositivo [link](https://msdn.microsoft.com/en-us/library/windows/hardware/ff552169%28v=vs.85%29.aspx). Até funciona muito bem para as versões 7 e 8 do Windows, mas no Windows XP tive alguns problemas, pois o nome do dispositivo ficava com lixo na String. Pode ser a minha falta de competência em manipular Strings em c++ e como tentei por 2 dias resolver isso sem sucesso, apelei para o registro do Windows. 
 
 Infelizmente pelo acordo de não divulgação do material produzido aqui na empresa em que trabalho, não posso dispobibilizar os fontes. Mas com essa breve explicação, se você tiver atrás de uma solução parecida, é possível resolver o seu problema. Caso tenha alguma dúvida, entre em contato que posso ajudar de alguma forma.
 

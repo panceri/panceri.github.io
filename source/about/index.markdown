@@ -5,7 +5,8 @@ comments: true
 sharing: true
 footer: true
 ---
-Sou desenvolvedor hà +- 10 anos e ja trabalhei com muitas linguagens de programação, dentre elas:
+Sou desenvolvedor há +- 10 anos e ja trabalhei com muitas linguagens de programação, dentre elas:
+
 - Delphi
 - C/C++
 - Java

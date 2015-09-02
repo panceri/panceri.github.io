@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: News | Developando]]></title>
+  <link href="http://panceri.github.io/blog/categories/news/atom.xml" rel="self"/>
+  <link href="http://panceri.github.io/"/>
+  <updated>2015-09-02T11:04:11-03:00</updated>
+  <id>http://panceri.github.io/</id>
+  <author>
+    <name><![CDATA[Filipe Sguarizi Panceri]]></name>
+    <email><![CDATA[filipe.info@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Podcast Comunidade NodeBR]]></title>
+    <link href="http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/"/>
+    <updated>2015-09-02T09:13:01-03:00</updated>
+    <id>http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr</id>
+    <content type="html"><![CDATA[<p>E saiu o primeiro podcast da comunidade nodebr. Gostei bastante do primeiro episódio que aborda o mercado de trabalho do Node bem como alguns insights sobre o profissionalismo na área. Pelo que eu vi, esse projeto foi feito usando a grana arrecadada nos metups da comunidade. A idéia é que ele seja quinzenal e é encabeçado pelo <a href="https://github.com/alanhoff">Alan Hoffmeister</a>. Vale a pena ficar ligado na lista de discussão da comunidade <a href="https://groups.google.com/forum/#!forum/nodebr">aqui</a> e no <a href="https://nodebr.slack.com">slack</a> e participar das disucussões.</p>
+
+<p>Error processing input, expected syntax: {% soundcloud type id [options...] %} received: <a href="https://soundcloud.com/nodebr/nodebrcast1">https://soundcloud.com/nodebr/nodebrcast1</a> </p>
+]]></content>
+  </entry>
+  
+</feed>

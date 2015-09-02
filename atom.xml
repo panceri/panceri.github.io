@@ -4,7 +4,7 @@
   <title><![CDATA[Developando]]></title>
   <link href="http://panceri.github.io/atom.xml" rel="self"/>
   <link href="http://panceri.github.io/"/>
-  <updated>2015-08-27T16:58:51+00:00</updated>
+  <updated>2015-09-02T11:04:11-03:00</updated>
   <id>http://panceri.github.io/</id>
   <author>
     <name><![CDATA[Filipe Sguarizi Panceri]]></name>
@@ -14,9 +14,21 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Podcast Comunidade NodeBR]]></title>
+    <link href="http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/"/>
+    <updated>2015-09-02T09:13:01-03:00</updated>
+    <id>http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr</id>
+    <content type="html"><![CDATA[<p>E saiu o primeiro podcast da comunidade nodebr. Gostei bastante do primeiro episódio que aborda o mercado de trabalho do Node bem como alguns insights sobre o profissionalismo na área. Pelo que eu vi, esse projeto foi feito usando a grana arrecadada nos metups da comunidade. A idéia é que ele seja quinzenal e é encabeçado pelo <a href="https://github.com/alanhoff">Alan Hoffmeister</a>. Vale a pena ficar ligado na lista de discussão da comunidade <a href="https://groups.google.com/forum/#!forum/nodebr">aqui</a> e no <a href="https://nodebr.slack.com">slack</a> e participar das disucussões.</p>
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F221939537&amp;"></iframe>
+
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Alterando Portas COM No Windows]]></title>
     <link href="http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows/"/>
-    <updated>2015-08-27T00:00:00+00:00</updated>
+    <updated>2015-08-27T00:00:00-03:00</updated>
     <id>http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows</id>
     <content type="html"><![CDATA[<h2>O Problema</h2>
 
@@ -74,7 +86,7 @@
   <entry>
     <title type="html"><![CDATA[First]]></title>
     <link href="http://panceri.github.io/blog/2015/08/26/first/"/>
-    <updated>2015-08-26T00:00:00+00:00</updated>
+    <updated>2015-08-26T00:00:00-03:00</updated>
     <id>http://panceri.github.io/blog/2015/08/26/first</id>
     <content type="html"><![CDATA[<p> Meu primeiro blog, e minha primeira postagem. Momento muito emocionante na minha vida, ta passou. Meu objetivo é postar pequenas dicas de programação, nada de tutoriais ou artigos intensos, apenas tentar compartilhar a forma que eu lido/lidei com alguns problemas que tive. Valew e vamos que vamos.</p>
 ]]></content>

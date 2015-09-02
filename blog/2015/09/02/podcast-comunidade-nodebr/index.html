@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Alterando Portas COM No Windows - Developando</title>
+  <title>Podcast Comunidade NodeBR - Developando</title>
   <meta name="author" content="Filipe Sguarizi Panceri">
 
   
-  <meta name="description" content="O Problema Recentemente precisei trabalhar em uma solução para trocar portas COM de alguns dispositivos específicos no Windows. Tínhamos um problema &hellip;">
+  <meta name="description" content="E saiu o primeiro podcast da comunidade nodebr. Gostei bastante do primeiro episódio que aborda o mercado de trabalho do Node bem como alguns &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows/">
+  <link rel="canonical" href="http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Developando" type="application/atom+xml">
@@ -81,7 +81,7 @@
   
   <header>
     
-      <h1 class="entry-title">Alterando Portas COM No Windows</h1>
+      <h1 class="entry-title">Podcast Comunidade NodeBR</h1>
     
     
       <p class="meta">
@@ -90,7 +90,7 @@
 
 
 
-<time class='entry-date' datetime='2015-08-27'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+<time class='entry-date' datetime='2015-09-02T09:13:01-03:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>9:13 am</span></time>
         
            | <a href="#disqus_thread"
              data-disqus-identifier="http://panceri.github.io">Comments</a>
@@ -100,55 +100,9 @@
   </header>
 
 
-<div class="entry-content"><h2>O Problema</h2>
+<div class="entry-content"><p>E saiu o primeiro podcast da comunidade nodebr. Gostei bastante do primeiro episódio que aborda o mercado de trabalho do Node bem como alguns insights sobre o profissionalismo na área. Pelo que eu vi, esse projeto foi feito usando a grana arrecadada nos metups da comunidade. A idéia é que ele seja quinzenal e é encabeçado pelo <a href="https://github.com/alanhoff">Alan Hoffmeister</a>. Vale a pena ficar ligado na lista de discussão da comunidade <a href="https://groups.google.com/forum/#!forum/nodebr">aqui</a> e no <a href="https://nodebr.slack.com">slack</a> e participar das disucussões.</p>
 
-<p>Recentemente precisei trabalhar em uma solução para trocar portas COM de alguns dispositivos específicos no Windows. Tínhamos um problema em que, quando conectávamos o dispositivo em uma USB específica o Windows reconhecia o mesmo e determinava que ele ia operar na porta COM1 por exemplo, mas ao desconectar esse dispositivo e conectá-lo em outra porta USB o Windows dava outra porta COM pra ele. Esse é o comportamento natural do Windows, por mais que pareça estranho. <!-- more --></p>
-
-<p>Com esse comportamento, nossa aplicação que se comunicava com o dispositivo não o encontrava, ja que inicialmente havíamos configurado para usar a COM1 e agora ele ele estava na COMX. Depois de muito pesquisar, cheguei em um aplicativo chamado <a href="http://www.uwe-sieber.de/comportman_e.html">ComPortMan</a>. Esse pequeno programinha é um serviço do Windows que fica &ldquo;ouvindo&rdquo; dispositivos que são conectados e de acordo com uma configuração específica seta uma porta COM para ele. Esse aplicativo me mostrou que sim é possível implementar uma solução para esse problema.</p>
-
-<h2>As possibilidades</h2>
-
-<p>Depois de muito pesquisar no MSDN da Microsoft, não encontrei nenhuma API que me permitisse alterar a porta COM de um dispositivo. Então teria que ser feito de outra forma, e nesse ponto imaginei 2 possíveis soluções:</p>
-
-<ol>
-<li>Fazer um aplicativo que &ldquo;simulasse&rdquo; o uso do mouse pelo usuário, e entrasse na no gerenciador de dispositivos do Windows, encontrasse o dispositivo, acessasse suas configurações avançadas e fizesse a alteração da porta. (Solução porca eu sei, mas na hora do desespero vale tudo)</li>
-<li>Encontrar aonde essa informação de qual porta COM usar para o dispositivo era armazenada e tentar trabalhar nessa alteração.</li>
-</ol>
-
-
-<h2>A solução</h2>
-
-<p>Optei pela solução 2, e deixei a 1 para nível de desespero máximo. Em minhas pesquisas, descobri que essa informação é armazenada no registro do Windows. Mais especificamente na chave:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_XXXX&PID_YYYY\BBBBBBBBBBBBB\Device Parameters\PortName"</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>XXXX: Vendor ID</li>
-<li>YYYY: Product ID</li>
-<li>BBBBBBBBBBBBB - Endereço do dispositivo dentro do barramento USB</li>
-</ul>
-
-
-<p>Mas não para por aí, geralmente a porta COM dos dispositivos é colocada no nome do dispositivo também, e essa informação esta na chave:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>"HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Enum\USB\VID_XXXX&PID_YYYY\BBBBBBBBBBBBB\FriendlyName"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Então parti para a mesma solução do ComPortMan, fiz um serviço do Windows em C++ que ouvia dispositivos conectados pela USB e quando identificasse que era um dos nossos equipamentos, verificafa se ele ja estava na nossa porta COM correta e caso contrário alterava esses 2 valores no registro do Windows. Para as alterações terem efeito é preciso desabilitar e habilitar o dispositivo. O Windows até provê uma API para alterar algumas informações do dispositivo <a href="https://msdn.microsoft.com/en-us/library/windows/hardware/ff552169%28v=vs.85%29.aspx">link</a>. Até funciona muito bem para as versões 7 e 8 do Windows, mas no Windows XP tive alguns problemas, pois o nome do dispositivo ficava com lixo na String. Pode ser a minha falta de competência em manipular Strings em c++ e como tentei por 2 dias resolver isso sem sucesso, apelei para o registro do Windows.</p>
-
-<p>Infelizmente pelo acordo de não divulgação do material produzido aqui na empresa em que trabalho, não posso dispobibilizar os fontes. Mas com essa breve explicação, se você tiver atrás de uma solução parecida, é possível resolver o seu problema. Caso tenha alguma dúvida, entre em contato que posso ajudar de alguma forma.</p>
-
-<p>Vou deixar alguns links de referência:</p>
-
-<ul>
-<li>Detectar dispositivos inseridos no sistema. <a href="https://msdn.microsoft.com/pt-br/library/windows/desktop/aa363431%28v=vs.85%29.aspx">link</a></li>
-<li>Manipular o registro do Windows. <a href="https://msdn.microsoft.com/pt-br/library/windows/desktop/ms724897%28v=vs.85%29.aspx">link</a></li>
-<li>Usei o Visual Studio 2008 para fazer esse projeto, e ele até gera um esqueleto de serviço do Windows mas não consegui fazer funcionar da forma que eu queria, então encontrei esse outro exemplo. <a href="https://code.msdn.microsoft.com/windowsapps/CppWindowsService-cacf4948">link</a></li>
-<li>Projeto que mostra o uso da API de detecção de inserção/remoção de dispositivos no Windows. <a href="http://www.codeproject.com/Articles/31749/Device-Information">link</a></li>
-</ul>
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="http://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F221939537&amp;"></iframe>
 
 </div>
 
@@ -165,12 +119,12 @@
 
 
 
-<time class='entry-date' datetime='2015-08-27'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
+<time class='entry-date' datetime='2015-09-02T09:13:01-03:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>9:13 am</span></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>
+    <a class='category' href='/blog/categories/news/'>news</a>
   
 </span>
 
@@ -179,7 +133,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows/" data-via="fpanceri" data-counturl="http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/" data-via="fpanceri" data-counturl="http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -192,10 +146,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2015/08/26/first/" title="Previous Post: First">&laquo; First</a>
+        <a class="basic-alignment left" href="/blog/2015/08/27/alterando-portas-com-no-windows/" title="Previous Post: Alterando portas COM no Windows">&laquo; Alterando portas COM no Windows</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2015/09/02/podcast-comunidade-nodebr/" title="Next Post: Podcast comunidade NodeBR">Podcast comunidade NodeBR &raquo;</a>
       
     </p>
   </footer>
@@ -291,8 +243,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows/';
-        var disqus_url = 'http://panceri.github.io/blog/2015/08/27/alterando-portas-com-no-windows/';
+        var disqus_identifier = 'http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/';
+        var disqus_url = 'http://panceri.github.io/blog/2015/09/02/podcast-comunidade-nodebr/';
         var disqus_script = 'embed.js';
       
     (function () {

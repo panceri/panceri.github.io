@@ -1,7 +1,0 @@
----
-layout: post
-title:  "First"
-date:   2015-08-26
-categories: blog first
----
- Meu primeiro blog, e minha primeira postagem. Momento muito emocionante na minha vida, ta passou. Meu objetivo é postar pequenas dicas de programação, nada de tutoriais ou artigos intensos, apenas tentar compartilhar a forma que eu lido/lidei com alguns problemas que tive. Valew e vamos que vamos.

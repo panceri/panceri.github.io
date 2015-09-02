@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: First | Developando]]></title>
+  <link href="http://panceri.github.io/blog/categories/first/atom.xml" rel="self"/>
+  <link href="http://panceri.github.io/"/>
+  <updated>2015-08-27T16:58:51+00:00</updated>
+  <id>http://panceri.github.io/</id>
+  <author>
+    <name><![CDATA[Filipe Sguarizi Panceri]]></name>
+    <email><![CDATA[filipe.info@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[First]]></title>
+    <link href="http://panceri.github.io/blog/2015/08/26/first/"/>
+    <updated>2015-08-26T00:00:00+00:00</updated>
+    <id>http://panceri.github.io/blog/2015/08/26/first</id>
+    <content type="html"><![CDATA[<p> Meu primeiro blog, e minha primeira postagem. Momento muito emocionante na minha vida, ta passou. Meu objetivo é postar pequenas dicas de programação, nada de tutoriais ou artigos intensos, apenas tentar compartilhar a forma que eu lido/lidei com alguns problemas que tive. Valew e vamos que vamos.</p>
+]]></content>
+  </entry>
+  
+</feed>

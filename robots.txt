@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://panceri.github.io/sitemap.xml 
